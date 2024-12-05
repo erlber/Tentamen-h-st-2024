@@ -1,0 +1,133 @@
+#denne listen bør vært lagret i json fil
+bestillinger =  [
+    {
+        'bestillingsId': '123123', 
+        'bussId': 'a41a0095-98ac-42b5-a1e3-99919e06fa6b', 
+        'kontaktPerson': 'Kåre Dj', 
+        'passasjerer': 14, 
+        'dager': 2, 
+        'distanse': 55, 
+        'totalPris': 4950
+    }
+]
+
+#denne listen bør vært lagret i json fil
+busser = [
+    {
+        "bussID": "f73ff8be-6c05-4ec8-b929-5ae70a6ebf78",
+        "antallSeter": 7,
+        "ledig": True,
+        "pris": 1250,
+    },
+        {
+        "bussID": "6de08d48-6706-40fa-8c25-21d20cec82a1",
+        "antallSeter": 7,
+        "ledig": True,
+        "pris": 1250,
+    },
+      {
+        "bussID": "eca8500f-742f-41a4-85f0-e21cae51085c",
+        "antallSeter": 7,
+        "ledig": True,
+        "pris": 1250,
+    },
+    {
+        "bussID": "a41a0095-98ac-42b5-a1e3-99919e06fa6b",
+        "antallSeter": 15,
+        "ledig": False,
+        "pris": 1600,
+    },
+     {
+        "bussID": "c6a8a2be-8be1-4cf0-84ca-d7579befa45f",
+        "antallSeter": 15,
+        "ledig": True,
+        "pris": 1600,
+    },
+     {
+        "bussID": "404348d2-8c10-44f0-b235-9080584d92a4",
+        "antallSeter": 15,
+        "ledig": True,
+        "pris": 1600,
+    },
+]
+
+# Her var det en del å ta tak i.
+# 1. Jeg ser du bruker print("") for å gjøre menyen og valgene mer lesbar, 
+# det er flott, men kanskje man kunne laget en funksjon for å lage antall mellomrom mellom linjene man ønsker?
+
+# 2. bestillingsId bør være en autogenerert id, ikke en id vi skirver inn selv
+
+# 3. Vi bør heller ikke skrive inn id for tildelt buss selv. kunden bør automatisk få tildelt en ledig buss som passer antall passasjerer.
+#    Husk at vi også må hondter sitvasjoner der det ikke er ledige busser som passer antall passasjerer
+
+# 4. koden krasjer når vi prøver å legge sammen totalPris, dette må rettes.
+
+# 5. er det noe vi kan gjøre for å hondtere eventuelle feil som oppstår hvis bruker skriver inn ugyldige verdier i input?
+def bestill_buss():
+    print("")
+    print("")
+    bestillingsId = input("lag en ny bestillings id: ")
+    kundeNavn = input("sriv inn navn på kunde: ")
+    antall = input("antall passasjerer? ")
+    dager = input("Hvor mange dager skal bussen leies? ")
+    distanse = input("antall forventet km? ")
+    
+    print("")
+    tildeltBuss = input("skriv inn id på ønsket buss: ")
+
+    bussPris = 0
+    for buss in busser:
+        if buss == tildeltBuss:
+            bussPris = buss["pris"]
+
+    totalPris = (bussPris * dager) + (distanse * 90)
+
+    nyBestilling = {
+        "bestillingsId": bestillingsId,
+        "bussId": tildeltBuss,
+        "kontaktPerson": kundeNavn,
+        "passasjerer": antall,
+        "dager": dager,
+        "distanse": distanse,
+        "totalPris": totalPris
+    }
+
+    bestillinger.append(nyBestilling)
+    print("")
+    print("")
+    print("")
+    print("")
+
+def meny():
+    print("1. Bestill busstur")
+    print("2. List ut bestilte bussturer")
+    print("3. avslutt busstur")
+    print("0. avslutt")
+    return int(input("velg ett nummer fra menyen: "))
+
+
+# funksjonen printer ut alle bestillinger som hele dictionary.
+# Formatter printen så den er mer lesbar for en vanlig bruker.
+def list_ut_bestillinger():
+    for bestilling in bestillinger:
+        print(bestilling)
+
+# Dnne funksjonen må fullføres, det beste er om man bare kan skrive inn navn på kontakt personen som man ønsker å fullføre bussruten til
+def avslutt_tur():
+    pass
+
+def main():
+    while True:
+        valg = meny()
+        # er dette beste måten å sett opp if-setninger?
+        if valg == 0:
+            break
+        if valg == 1:
+            bestill_buss()
+        if valg == 2:
+            list_ut_bestillinger()
+        if valg == 3:
+            avslutt_tur()
+
+
+main()
