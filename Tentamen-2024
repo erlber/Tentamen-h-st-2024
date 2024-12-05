@@ -127,7 +127,7 @@ def list_ut_bestillinger():
     for bestilling in bestillinger:
         print(bestilling)
 
-# Dnne funksjonen må fullføres, det beste er om man bare kan skrive inn navn på kontaktpersonen som man ønsker å fullføre bussruten til
+# Denne funksjonen må fullføres, det beste er om man bare kan skrive inn navn på kontaktpersonen som man ønsker å avslutte turen til
 def avslutt_tur():
     pass
 
