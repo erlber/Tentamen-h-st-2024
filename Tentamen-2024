@@ -3,7 +3,7 @@ bestillinger =  [
     {
         'bestillingsId': '123123', 
         'bussId': 'a41a0095-98ac-42b5-a1e3-99919e06fa6b', 
-        'kontaktPerson': 'Kåre Dj', 
+        'kontaktPerson': 'Tom Lund', 
         'passasjerer': 14, 
         'dager': 2, 
         'distanse': 55, 
@@ -63,6 +63,7 @@ busser = [
     },
 ]
 
+#### KOMMENTAR FOR FUNKSJONEN: bestill_buss() ######
 # Her var det en del å ta tak i.
 # 1. Jeg ser du bruker print("") for å gjøre menyen og valgene mer lesbar, 
 # det er flott, men kanskje man kunne laget en funksjon for å lage antall mellomrom mellom linjene man ønsker?
@@ -75,6 +76,8 @@ busser = [
 # 4. koden krasjer når vi prøver å legge sammen totalPris, dette må rettes.
 
 # 5. er det noe vi kan gjøre for å hondtere eventuelle feil som oppstår hvis bruker skriver inn ugyldige verdier i input?
+
+# 6. Det mangler dato for når bestillingen ble opprettet.
 def bestill_buss():
     print("")
     print("")
