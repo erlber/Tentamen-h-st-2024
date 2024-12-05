@@ -49,6 +49,18 @@ busser = [
         "ledig": True,
         "pris": 1600,
     },
+     {
+        "bussID": "6a4acbee-d69b-4249-b3fb-94e8dfd9003b",
+        "antallSeter": 23,
+        "ledig": True,
+        "pris": 1900,
+    },
+    {
+        "bussID": "d0cef6b8-b44f-4fe1-9236-c320853a7db2",
+        "antallSeter": 23,
+        "ledig": True,
+        "pris": 1900,
+    },
 ]
 
 # Her var det en del å ta tak i.
